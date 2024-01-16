@@ -1,4 +1,4 @@
-package scda.tatiana.polyglotkotlin.domain.model
+package scda.tatiana.polyglotkotlin.api.request
 
 data class User(
     val name: String,
