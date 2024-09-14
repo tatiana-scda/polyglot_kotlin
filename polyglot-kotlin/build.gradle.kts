@@ -19,10 +19,13 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.2.1")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.3.3")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("postgresql:postgresql:9.1-901.jdbc4")
+
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

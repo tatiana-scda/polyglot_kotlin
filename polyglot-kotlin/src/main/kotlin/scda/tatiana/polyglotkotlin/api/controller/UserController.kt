@@ -3,10 +3,7 @@ package scda.tatiana.polyglotkotlin.api.controller
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import scda.tatiana.polyglotkotlin.api.request.User
 import scda.tatiana.polyglotkotlin.domain.service.UserService
 
@@ -21,5 +18,19 @@ class UserController(val service: UserService) {
         val result = service.createUser(user)
 
         return ResponseEntity(result, HttpStatus.CREATED)
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<*> {
+      val result = service.findAll()
+
+    return ResponseEntity(result, HttpStatus.OK)
+    }
+
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long): ResponseEntity<*> {
+        val result = service.findById(id)
+
+        return ResponseEntity(result, HttpStatus.OK)
     }
 }

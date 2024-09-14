@@ -8,9 +8,15 @@ import scda.tatiana.polyglotkotlin.domain.repository.UserRepository
 @Service
 class UserService(var repository: UserRepository) {
 
-    fun createUser(user: User): UserEntity {
+    fun createUser(
+        user: User
+    ): UserEntity {
         return repository.save(userToEntity(user))
     }
+
+    fun findAll() = repository.findAll()
+
+    fun findById(id: Long) = repository.findById(id)
 
     companion object {
         fun userToEntity(user: User) = UserEntity(
